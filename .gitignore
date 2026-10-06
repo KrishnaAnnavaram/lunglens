@@ -1,0 +1,32 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# data, images, weights and outputs are never committed
+/data/*
+!/data/README.md
+/models/
+/outputs/
+/runs/
+/cache/
+*.dcm
+*.npy
+*.npz
+*.nii
+*.nii.gz
+*.pth
+*.pt
+*.joblib
+*.pdf
+*.db
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/

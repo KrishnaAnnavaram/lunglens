@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lunglens"
+version = "0.1.0"
+description = "Lung CT nodule malignancy scoring with patient reports in 80+ languages"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Krishna Annavaram" }]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+    "pydantic>=2.5",
+]
+
+[project.optional-dependencies]
+lidc = ["pylidc>=0.2.3", "pydicom>=2.4"]
+dicom = ["pydicom>=2.4"]
+deep = ["torch>=2.1"]
+translate = ["transformers>=4.40", "sentencepiece>=0.1.99", "torch>=2.1"]
+pdf = ["reportlab>=4.0"]
+app = ["streamlit>=1.30"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+lunglens = "lunglens.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+lunglens = ["i18n/*.json", "report/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

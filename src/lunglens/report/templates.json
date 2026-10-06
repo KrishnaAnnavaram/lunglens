@@ -1,0 +1,14 @@
+{
+  "title": "Research nodule analysis (not a diagnosis)",
+  "safety": "This result comes from a research model. It is not a diagnosis and it is not medical advice. A radiologist or a doctor must review the scan and decide on the next steps.",
+  "intro": "The model looked at one lung nodule at position {position} in the CT series.",
+  "estimate": "The model estimates a malignancy likelihood of {probability} for this nodule.",
+  "band.lower": "This estimate is in the lower band of the model (below {low}).",
+  "band.intermediate": "This estimate is in the intermediate band of the model (from {low} to below {high}).",
+  "band.higher": "This estimate is in the higher band of the model ({high} or above).",
+  "band.not_assessed": "The model did not give an estimate, because the input did not pass the checks.",
+  "size": "The measured size of the nodule is about {diameter} mm.",
+  "limits": "The model was tested on research data only. It can be wrong. It does not look at the rest of the scan, the medical history or earlier scans.",
+  "next": "Talk with your doctor about this result. Do not change a treatment because of this report.",
+  "warnings": "Input warnings: {warnings}"
+}
