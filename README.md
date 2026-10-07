@@ -9,7 +9,7 @@
 ![Models](https://img.shields.io/badge/Models-prior_%7C_size_%7C_radiomics_%7C_3D_CNN-1F3864?style=for-the-badge)
 ![Split](https://img.shields.io/badge/Split-by_patient-2E5FD9?style=for-the-badge)
 ![Languages](https://img.shields.io/badge/Languages-94_NLLB_codes-6E86E8?style=for-the-badge)
-![Tests](https://img.shields.io/badge/Tests-43_passing-3DA35B?style=for-the-badge)
+![Tests](https://img.shields.io/badge/Tests-42_passing-3DA35B?style=for-the-badge)
 ![Offline demo](https://img.shields.io/badge/Offline_demo-Yes-F5C542?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-A0399B?style=for-the-badge)
 
@@ -105,7 +105,7 @@ lunglens gives each of these questions its own component. The data step labels n
 | Providers | NLLB-200 through `transformers` (optional), PyTorch (optional), pylidc (optional) |
 | Offline mode | Synthetic cohort, three scikit-learn models, evaluation, English reports, FAQ |
 | Safety | Fixed templates, a safety notice first and last, a banned-phrase check, DICOM header checks |
-| Tests | **43** unit tests pass and **1** skips locally. In CI (no torch) **42** pass and **2** skip |
+| Tests | **42** unit tests pass in CI (`pytest`), 2 skip without the `deep` and `pdf` extras. With the `deep` extra: 43 pass, 1 skips |
 
 ```mermaid
 flowchart LR
@@ -466,8 +466,8 @@ lunglens needs no credentials. Settings are in a local `.env` file. Git ignores 
 
 | Validation | Result | Command |
 |---|---|---|
-| Unit tests (local, torch installed) | **43 passed, 1 skipped** (PDF test, no `reportlab`) | `pytest -q` |
-| Unit tests (CI, no torch) | 42 passed, 2 skipped (PDF test, CNN test) | `pytest -q` |
+| Unit tests (CI installs only `.[dev]`) | **42 passed, 2 skipped** (the PDF test and the CNN test) | `pytest -q` |
+| Unit tests with the `deep` extra (PyTorch) | **43 passed, 1 skipped** (the PDF test needs the `pdf` extra) | `pytest -q` |
 | Synthetic split | 172 training nodules (81 patients), 51 test nodules (28 other patients) | `lunglens demo` |
 | `prior` (synthetic) | AUROC 0.500, Brier 0.239 | `lunglens demo` |
 | `size` (synthetic) | AUROC 0.752 [0.599, 0.888], Brier 0.195, ECE 0.122, patient AUROC 0.766 | `lunglens demo` |
